@@ -8,7 +8,9 @@ const journalRoutes = require("./routes/journalRoutes");
 const app = express();
 
 app.use(cors({
-  origin: "*"
+  origin: "*",
+  methods: ["GET","POST","PUT","DELETE"],
+  allowedHeaders: ["Content-Type"]
 }));
 app.use(express.json());
 
