@@ -3,7 +3,7 @@ import axios from "axios";
 
 function App() {
 
-const API = "https://ai-journal-v8la.onrender.com";
+const API = "https://ai-journal-backend-fdet.onrender.com";
 
 const [text, setText] = useState("");
 const [entries, setEntries] = useState([]);
