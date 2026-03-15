@@ -4,14 +4,25 @@ const sentiment = new Sentiment();
 
 
 // Create journal entry
+// Create journal entry
 exports.createEntry = async (req, res) => {
-    try {
-        const entry = new Journal(req.body);
-        await entry.save();
-        res.json(entry);
-    } catch (error) {
-        res.status(500).json(error);
-    }
+  try {
+    const { userId, text, ambience } = req.body;
+
+    const entry = new Journal({
+      userId,
+      text,
+      ambience
+    });
+
+    const savedEntry = await entry.save();
+
+    res.json(savedEntry);
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Save failed" });
+  }
 };
 
 
